@@ -1,12 +1,9 @@
 pipeline {
-    agent any 
-    tools {
-        maven '3.9.9' 
-    }
+    agent any
     stages {
         stage('Build') {
             steps {
-                sh 'mvn test'
+                sh './mvnw test'
             }
         }
     }
