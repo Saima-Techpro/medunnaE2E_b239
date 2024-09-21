@@ -11,6 +11,11 @@ pipeline {
                 sh './mvnw test'
             }
         }
+        stage('List Reports') {
+            steps {
+                sh 'ls -R target'  // List files to verify report generation
+            }
+        }
     }
     post {
         always {
