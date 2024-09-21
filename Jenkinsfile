@@ -11,11 +11,11 @@ pipeline {
                 sh './mvnw test'
             }
         }
-        stage('List Reports') {
-            steps {
-                sh 'ls -R target'  // List files to verify report generation
-            }
-        }
+        // stage('List Reports') {  // use this if you need to see the list of directory of all folders 
+        //     steps {
+        //         sh 'ls -R target'  // List files to verify report generation
+        //     }
+        // }
     }
     post {
         always {
@@ -29,7 +29,8 @@ pipeline {
                 replyTo: 'saima.techproed@gmail.com', // Reply-to email
                  attachLog: true,  // Attach the console log
                 // attachmentsPattern: '**/target/surefire-reports/*',  // Path to your reports (e.g., JUnit XML reports)
-                attachmentsPattern: '**/target/cucumber-reports/*.html'
+                attachmentsPattern: '''target/cucumber-reports.html, 
+                                      target/cucumber-html-reports/*.html'''  // Include HTML reports
                 
             )
         }
