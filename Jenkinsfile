@@ -19,9 +19,12 @@ pipeline {
                 subject: "Jenkins Build - ${currentBuild.fullDisplayName}",
                 body: """<p>Build: ${currentBuild.fullDisplayName} (${env.BUILD_URL})</p>
                          <p>Status: ${currentBuild.currentResult}</p>""",
-                to: 'saima.techproed@gmail.com',
-                from: 'saima.techproed@gmail.com',
-                replyTo: 'saima.techproed@gmail.com'
+                to: 'saima.techproed@gmail.com', // Recipient
+                from: 'saima.techproed@gmail.com', // Your email
+                replyTo: 'saima.techproed@gmail.com', // Reply-to email
+                 attachLog: true,  // Attach the console log
+                attachments: '**/target/surefire-reports/*.xml'  // Path to your reports (e.g., JUnit XML reports)
+                
             )
         }
     }
