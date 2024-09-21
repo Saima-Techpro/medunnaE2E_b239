@@ -24,7 +24,7 @@ pipeline {
                 replyTo: 'saima.techproed@gmail.com', // Reply-to email
                  attachLog: true,  // Attach the console log
                 // attachmentsPattern: '**/target/surefire-reports/*',  // Path to your reports (e.g., JUnit XML reports)
-                attachmentsPattern: '**/target/cucumber-reports/*'
+                attachmentsPattern: '**/target/cucumber-reports/.html*'
                 
             )
         }
